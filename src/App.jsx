@@ -1,16 +1,15 @@
-import { CarreraTecnicaList } from './components/CarreraTecnicaList';
-
-const initCarrerasTecnicas = [
-    {codigo: '1', nombre: 'Programación con java'},
-    {codigo: '2', nombre: 'Desarrollo de aplicaciones web'}
-  ]
+import { useContext } from "react";
+import { LoginPage } from "./auth/pages/LoginPage";
+import { AuthContext } from "./auth/context/AuthContext";
+import { Navigate, Route, Routes } from "react-router-dom";
+import { Provider } from "react-redux";
+import { store } from "./store/store";
+import { AppRoutes } from "./AppRoutes";
 
 export const App = () => {
-    return (
-        <>
-            <h1>Carreras Técnicas</h1>
-            <CarreraTecnicaList carrerasTecnicas = {initCarrerasTecnicas}/>
-
-        </>
-    )
+  return (
+    <Provider store={store}>
+      <AppRoutes/>
+    </Provider>
+  )
 }
